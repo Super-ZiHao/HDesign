@@ -1,0 +1,17 @@
+.hd-button {
+  color: var(--hd-button-color, #2c2351);
+  font-size: var(--hd-button-fs, 14px);
+  outline: var(--hd-button-outline, none);
+  border: var(--hd-button-border, 1px solid rgb(227, 230, 250));
+  border-radius: var(--hd-button-radius, 6px);
+  background-color: var(--hd-button-bgColor, #fff);
+  padding: var(--hd-button-p, 10px 16px);
+  cursor: pointer;
+  transition: all .6s;
+  &:hover {
+    background-color: var(-hd-button-hover-bgColor, #f4f2fe);
+  }
+  &:active {
+    background-color: var(-hd-button-active-bgColor, #ece9fa);
+  }
+}

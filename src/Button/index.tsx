@@ -1,3 +1,12 @@
 import React from 'react';
+import './index.scss';
 
-export default ({ title }: { title: string }) => <h1>{title}</h1>;
+export type Props = {
+  children?: React.ReactNode;
+};
+
+const Button: React.FC<Props> = (props) => {
+  const { children } = props;
+  return <button className="hd-button">{children}</button>;
+};
+export default Button;
