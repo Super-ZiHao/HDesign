@@ -6,6 +6,10 @@ export type Props = {
   style?: CSSProperties;
   children?: React.ReactNode;
   /**
+   * @description 图标
+   */
+  icon?: React.ReactNode;
+  /**
    * @description 是否需要点击动画
    * @default false
    */
