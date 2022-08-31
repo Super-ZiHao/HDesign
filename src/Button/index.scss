@@ -1,17 +1,78 @@
 .hd-button {
-  color: var(--hd-button-color, #2c2351);
+  position: relative;
+  overflow: hidden;
+  color: var(--hd-button-color, var(--hd-text-color));
   font-size: var(--hd-button-fs, 14px);
   outline: var(--hd-button-outline, none);
   border: var(--hd-button-border, 1px solid rgb(227, 230, 250));
-  border-radius: var(--hd-button-radius, 6px);
+  border-radius: var(--hd-button-radius, 4px);
   background-color: var(--hd-button-bgColor, #fff);
-  padding: var(--hd-button-p, 10px 16px);
+  padding: var(--hd-button-p, 8px 14px);
+  
   cursor: pointer;
-  transition: all .6s;
-  &:hover {
-    background-color: var(-hd-button-hover-bgColor, #f4f2fe);
+  transition: .3s all;
+  &:not(.disabled):hover {
+    background-color: var(--hd-button-hover-bgColor, #f1f5f9);
   }
-  &:active {
-    background-color: var(-hd-button-active-bgColor, #ece9fa);
+  &:not(.disabled):active {
+    background-color: var(--hd-button-active-bgColor, #e2ecf7);
+  }
+
+  // 动画
+  &.animation {
+    &:not(.disabled):active {
+      background-color: var(--hd-button-hover-bgColor, #f1f5f9);
+    }
+    .hd-button-point {
+      position: absolute;
+      border-radius: 50%;
+      background-color: var(--hd-button-active-bgColor, #e2ecf7);
+      animation: enlarge 1s linear forwards;
+      transition: .3s all;
+      transform: translate(-50%, -50%);
+      &.del {
+        background-color: transparent;
+      }
+    }
+    .hd-text {
+      position: relative;
+      z-index: 10;
+    }
+  }
+
+  // 禁用
+  &.disabled {
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba($color: #fff, $alpha: .4);
+      z-index: 20;
+    }
+  }
+  
+  // 'warning' | 'danger' | 'info'
+  &.primary {
+    --hd-button-color: #f7f9fd;
+    --hd-button-bgColor: #2f9ef7;
+    --hd-button-hover-bgColor: #2f7ef8;
+    --hd-button-active-bgColor: #2f5ef9;
+  }
+  &.success {
+    --hd-button-color: #f7f9fd;
+    --hd-button-bgColor: #56a130;
+    --hd-button-hover-bgColor: #4e912c;
+    --hd-button-active-bgColor: #417925;
+  }
+}
+
+@keyframes enlarge {
+  0% {
+    width: 0px;
+    height: 0px;
+  }
+  100% {
+    width: 500px;
+    height: 500px;
   }
 }
