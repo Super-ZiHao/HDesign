@@ -1,16 +1,17 @@
 .hd-button {
-  --hd-button-primary-1: #2f9ef7;
-  --hd-button-primary-2: #3d85f3;
-  --hd-button-primary-3: #2f5ef9;
-  --hd-button-success-1: #56a130;
-  --hd-button-success-2: #4e912c;
-  --hd-button-success-3: #438522;
-  --hd-button-warning-1: #e29700;
-  --hd-button-warning-2: #eb8602;
-  --hd-button-warning-3: #d17300;
-  --hd-button-danger-1: #e03e6c;
-  --hd-button-danger-2: #c72754;
-  --hd-button-danger-3: #ff0000;
+
+  --hd-button-primary-1: hsl(215, 100%, 60%);
+  --hd-button-primary-2: hsl(215, 100%, 55%);
+  --hd-button-primary-3: hsl(215, 100%, 50%);
+  --hd-button-success-1: hsl(120, 60%, 40%);
+  --hd-button-success-2: hsl(120, 60%, 35%);
+  --hd-button-success-3: hsl(120, 60%, 30%);
+  --hd-button-warning-1: hsl(20, 100%, 55%);
+  --hd-button-warning-2: hsl(20, 100%, 50%);
+  --hd-button-warning-3: hsl(20, 100%, 45%);
+  --hd-button-danger-1: hsl(2, 85%, 55%);
+  --hd-button-danger-2: hsl(2, 90%, 45%);
+  --hd-button-danger-3: hsl(2, 95%, 35%);
   --hd-button-text-color: var(--hd-text-color-white);
   position: relative;
   overflow: hidden;
