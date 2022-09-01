@@ -22,7 +22,6 @@
   cursor: var(--hd-button-cursor, pointer);
   transition: .3s all;
   box-sizing: border-box;
-
   &:not(.disabled):hover {
     background-color: var(--hd-button-hover-bgColor, #f1f5f9);
   }
