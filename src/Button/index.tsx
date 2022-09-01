@@ -58,11 +58,13 @@ const Button: React.FC<Props> = (props) => {
   const handleMouseDown = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     // 动画操作
     if (!animation || disabled) return;
+    e.persist();
     const button = buttonRef.current as HTMLButtonElement;
     const div = document.createElement('div');
+    const { left, top } = button.getBoundingClientRect();
     div.classList.add('hd-button-point');
-    div.style.left = `${e.clientX - button.offsetLeft}px`;
-    div.style.top = `${e.clientY - button.offsetTop}px`;
+    div.style.left = `${e.clientX - left}px`;
+    div.style.top = `${e.clientY - top}px`;
     (buttonRef.current as HTMLButtonElement).appendChild(div);
     const handleUp = () => {
       div.classList.add('del');
@@ -76,9 +78,8 @@ const Button: React.FC<Props> = (props) => {
   return (
     <button
       ref={buttonRef}
-      className={`hd-button ${className} ${type} ${animation ? 'animation' : ''} ${
-        disabled ? 'disabled' : ''
-      } ${plain ? 'plain' : ''}`}
+      className={`hd-button ${className} ${type} ${animation ? 'animation' : ''} ${disabled ? 'disabled' : ''
+        } ${plain ? 'plain' : ''}`}
       style={{
         ...style,
       }}
