@@ -1,0 +1,15 @@
+.hd-input {
+  width: 200px;
+  border-radius: 4px;
+  padding: 0 6px;
+  box-sizing: border-box;
+  &.focus {
+    border-color: blue;
+  }
+}
+.hd-input__inner {
+  height: 32px;
+  outline: none;
+  padding: 0;
+  box-sizing: border-box;
+}
