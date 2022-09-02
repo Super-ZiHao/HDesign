@@ -10,25 +10,31 @@ export type Props = {
    */
   icon?: React.ReactNode;
   /**
-   * @description 是否需要点击动画
-   * @default false
-   */
-  animation?: boolean;
-  /**
    * @description 按钮类型
    * @default "defalut"
    */
   type?: 'default' | 'primary' | 'success' | 'warning' | 'danger';
   /**
-   * @description 轻量按钮
-   * @default false
+   * @description 加载中
+   * @default 未完成
    */
-  plain?: boolean;
+  loading?: boolean | JSX.Element
   /**
    * @description 是否禁用
    * @default false
    */
   disabled?: boolean;
+  /**
+   * @description 是否需要点击动画
+   * @default false
+   */
+  animation?: boolean;
+  /**
+   * @description 轻量按钮
+   * @default false
+   */
+  plain?: boolean;
+
   /** 点击事件 */
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   /** 移入事件 */
@@ -42,10 +48,11 @@ const Button: React.FC<Props> = (props) => {
     className = '',
     style,
     children,
+    loading = false,
     animation = false,
     type = 'default',
     plain = false,
-    disabled,
+    disabled = false,
     onClick,
     onMouseOver,
     onMouseOut,
@@ -53,11 +60,12 @@ const Button: React.FC<Props> = (props) => {
   } = props;
   const buttonRef = useRef<HTMLButtonElement>(null);
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    if (disabled) return;
     onClick?.(e);
   };
   const handleMouseDown = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     // 动画操作
-    if (!animation || disabled) return;
+    if (!animation || disabled || loading) return;
     e.persist();
     const button = buttonRef.current as HTMLButtonElement;
     const div = document.createElement('div');
@@ -76,21 +84,26 @@ const Button: React.FC<Props> = (props) => {
     button.addEventListener('mouseup', handleUp);
   };
   return (
-    <button
-      ref={buttonRef}
-      className={`hd-button ${className} ${type} ${animation ? 'animation' : ''} ${disabled ? 'disabled' : ''
-        } ${plain ? 'plain' : ''}`}
-      style={{
-        ...style,
-      }}
-      onClick={handleClick}
-      onMouseDown={handleMouseDown}
-      onMouseLeave={onMouseOut}
-      onMouseEnter={onMouseOver}
-      {...resetProps}
-    >
-      {animation ? <span className="hd-text">{children}</span> : children}
-    </button>
+    <div className='hd-button'>
+      <button
+        ref={buttonRef}
+        className={`hd-button__inner ${className} ${type} ${animation ? 'animation' : ''} ${plain ? 'hd-plain' : 'hd-weight'}`}
+        style={{
+          ...style,
+        }}
+        onClick={handleClick}
+        onMouseDown={handleMouseDown}
+        onMouseLeave={onMouseOut}
+        onMouseEnter={onMouseOver}
+        {...resetProps}
+      >
+        {animation ? <span className="hd-text">{children}</span> : children}
+      </button>
+      {disabled && <div className='hd-button-disabled' />}
+      {loading && <div className='hd-button-loading' />}
+    </div>
   );
 };
+
+export { ButtonGroup } from './components/ButtonGroup'
 export default Button;
