@@ -30,6 +30,7 @@
     ]
   },
   "dependencies": {
+    "@ctrl/tinycolor": "^3.4.1",
     "react": "^18.0.0"
   },
   "devDependencies": {
