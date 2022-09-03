@@ -11,7 +11,6 @@ export type Props = {
    * @default false
    */
   clearable?: boolean | JSX.Element;
-
   /** 前缀 */
   prefix?: React.ReactNode;
   /** 输入框内容变化时触发 */
@@ -66,7 +65,7 @@ const Input: React.FC<Props> = ({ value, placeholder, onChange, onFocus, onBlur,
         onBlur={handleBlur}
         onKeyDown={handleKeyDown}
       />
-      {placeholder && <span className="hd-input-placeholder">{placeholder}</span>}
+      {/* {placeholder && <span className="hd-input-placeholder">{placeholder}</span>} */}
     </div>
   );
 };
