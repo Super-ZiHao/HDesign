@@ -1,10 +1,20 @@
 import React, { CSSProperties, useRef } from 'react';
 import './index.scss';
+import { getColor, useButtonCustomStyle } from './utils';
 
 export type Props = {
   className?: string;
   style?: CSSProperties;
   children?: React.ReactNode;
+  /**
+   * @description 自适应颜色
+   */
+  color?: string;
+  /**
+   * @description 是否黑暗色
+   * @default false
+   */
+  dark?: boolean;
   /**
    * @description 图标
    */
@@ -18,7 +28,7 @@ export type Props = {
    * @description 加载中
    * @default 未完成
    */
-  loading?: boolean | JSX.Element
+  loading?: boolean | JSX.Element;
   /**
    * @description 是否禁用
    * @default false
@@ -43,21 +53,22 @@ export type Props = {
   onMouseOut?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 };
 
-const Button: React.FC<Props> = (props) => {
-  const {
-    className = '',
-    style,
-    children,
-    loading = false,
-    animation = false,
-    type = 'default',
-    plain = false,
-    disabled = false,
-    onClick,
-    onMouseOver,
-    onMouseOut,
-    ...resetProps
-  } = props;
+const Button: React.FC<Props> = ({
+  className = '',
+  color,
+  dark = false,
+  style,
+  children,
+  loading = false,
+  animation = false,
+  type = 'default',
+  plain = false,
+  disabled = false,
+  onClick,
+  onMouseOver,
+  onMouseOut,
+  ...resetProps
+}) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (disabled) return;
@@ -83,12 +94,16 @@ const Button: React.FC<Props> = (props) => {
     };
     button.addEventListener('mouseup', handleUp);
   };
+
   return (
-    <div className='hd-button'>
+    <div className="hd-button">
       <button
         ref={buttonRef}
-        className={`hd-button__inner ${className} ${type} ${animation ? 'animation' : ''} ${plain ? 'hd-plain' : 'hd-weight'}`}
+        className={`hd-button__inner ${className} ${type} ${animation ? 'animation' : ''} ${
+          plain ? 'hd-plain' : 'hd-weight'
+        }`}
         style={{
+          ...useButtonCustomStyle(color, dark, plain, disabled),
           ...style,
         }}
         onClick={handleClick}
@@ -99,11 +114,11 @@ const Button: React.FC<Props> = (props) => {
       >
         {animation ? <span className="hd-text">{children}</span> : children}
       </button>
-      {disabled && <div className='hd-button-disabled' />}
-      {loading && <div className='hd-button-loading' />}
+      {disabled && <div className="hd-button-disabled" />}
+      {loading && <div className="hd-button-loading" />}
     </div>
   );
 };
 
-export { ButtonGroup } from './components/ButtonGroup'
+export { ButtonGroup } from './components/ButtonGroup';
 export default Button;

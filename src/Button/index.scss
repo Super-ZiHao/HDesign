@@ -11,14 +11,16 @@
   --hd-button-success-3: hsl(120, 60%, 30%);
   --hd-button-warning-1: hsl(20, 100%, 55%);
   --hd-button-warning-2: hsl(20, 100%, 50%);
-  --hd-button-warning-3: hsl(20, 100%, 45%);
+  --hd-button-warning-3: hsl(20, 100%, 40%);
   --hd-button-danger-1: hsl(2, 85%, 60%);
   --hd-button-danger-2: hsl(2, 85%, 55%);
-  --hd-button-danger-3: hsl(2, 85%, 50%);
+  --hd-button-danger-3: hsl(2, 85%, 45%);
   position: relative;
   padding: var(--hd-button-p, 8px 14px);
   border-radius: var(--hd-button-radius, 4px);
+  border: 1px solid var(--hd-button-borderColor, #e6e2fa);
   background-color: var(--hd-button-bgColor, #fff);
+  color: var(--hd-button-color, var(--hd-color-white));
   font-size: var(--hd-button-fs, 14px);
   user-select: none;
   overflow: hidden;
@@ -34,47 +36,64 @@
 
   // 重量
   &.hd-weight {
-    border: none;
-    color: var(--hd-button-color, var(--hd-text-color-white));
+    &:hover {
+      border-color: var(--hd-button-hover-borderColor, var(--hd-button-borderColor));
+    }
+    &:active {
+      border-color: var(--hd-button-active-borderColor, var(--hd-button-borderColor));
+    }
     &.default {
-      border: 1px solid var(--hd-button-borderColor, #e6e2fa);
-      --hd-button-color: var(--hd-text-color-black);
+      --hd-button-borderColor: #e6e2fa;
+      --hd-button-color: var(--hd-color-black);
     }
     &.primary {
       --hd-button-bgColor: var(--hd-button-primary-1);
       --hd-button-hover-bgColor: var(--hd-button-primary-2);
       --hd-button-active-bgColor: var(--hd-button-primary-3);
+      --hd-button-borderColor: var(--hd-button-primary-1);
+      --hd-button-hover-borderColor: var(--hd-button-primary-2);
+      --hd-button-active-borderColor: var(--hd-button-primary-3);
     }
     &.success {
       --hd-button-bgColor: var(--hd-button-success-1);
       --hd-button-hover-bgColor: var(--hd-button-success-2);
       --hd-button-active-bgColor: var(--hd-button-success-3);
+      --hd-button-borderColor: var(--hd-button-success-1);
+      --hd-button-hover-borderColor: var(--hd-button-success-2);
+      --hd-button-active-borderColor: var(--hd-button-success-3);
     }
     &.warning {
       --hd-button-bgColor: var(--hd-button-warning-1);
       --hd-button-hover-bgColor: var(--hd-button-warning-2);
       --hd-button-active-bgColor: var(--hd-button-warning-3);
+      --hd-button-borderColor: var(--hd-button-warning-1);
+      --hd-button-hover-borderColor: var(--hd-button-warning-2);
+      --hd-button-active-borderColor: var(--hd-button-warning-3);
     }
     &.danger {
       --hd-button-bgColor: var(--hd-button-danger-1);
       --hd-button-hover-bgColor: var(--hd-button-danger-2);
       --hd-button-active-bgColor: var(--hd-button-danger-3);
+      --hd-button-borderColor: var(--hd-button-danger-1);
+      --hd-button-hover-borderColor: var(--hd-button-danger-2);
+      --hd-button-active-borderColor: var(--hd-button-danger-3);
     }
   }
   // 轻量
   &.hd-plain {
-    border: 1px solid var(--hd-button-borderColor, #e6e2fa);
-    color: var(--hd-button-color, var(--hd-text-color-black));
     &:hover {
-      color: var(--hd-button-hover-color, var(--hd-text-color-black));
+      color: var(--hd-button-hover-color, var(--hd-button-color));
       border-color: var(--hd-button-hover-borderColor, #e6e2fa);
     }
     &:active {
-      color: var(--hd-button-active-color, var(--hd-text-color-black));
+      color: var(--hd-button-active-color, var(--hd-button-color));
       border-color: var(--hd-button-active-borderColor, #e6e2fa);
     }
     &.default {
-      border: none;
+      --hd-button-color: var(--hd-color-black);
+      --hd-button-borderColor: transparent;
+      --hd-button-hover-borderColor: transparent;
+      --hd-button-active-borderColor: transparent;
     }
     &.primary {
       --hd-button-bgColor: hsl(215, 100%, 96%);
@@ -151,6 +170,7 @@
   inset: 0;
   background-color: rgba($color: #fff, $alpha: .5);
   cursor: not-allowed;
+  z-index: 10;
 }
 .hd-button-loading {
   background-color: rgba($color: #fff, $alpha: .35);

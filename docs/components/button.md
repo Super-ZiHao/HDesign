@@ -15,17 +15,15 @@ export default () => {
         <Button type="success" animation>
           Success
         </Button>
-        <Button type="warning">
-          Warning
-        </Button>
-        <Button type="danger">
-          Danger
-        </Button>
+        <Button type="warning">Warning</Button>
+        <Button type="danger">Danger</Button>
       </div>
 
       <h3>轻量</h3>
       <div style={{ display: 'flex', gap: 8 }}>
-        <Button plain animation>Default</Button>
+        <Button plain animation>
+          Default
+        </Button>
         <Button type="primary" plain animation>
           Primary
         </Button>
@@ -57,11 +55,26 @@ export default () => {
         </Button>
       </div>
 
+      <h3>自适应颜色</h3>
+      <div style={{ display: 'flex', gap: 8 }}>
+        <Button color="pink" animation>
+          DIY-1
+        </Button>
+        <Button color="pink" plain animation>
+          DIY-1
+        </Button>
+        <Button color="green" animation>
+          DIY-2
+        </Button>
+        <Button color="#376aff" animation>
+          DIY-3
+        </Button>
+      </div>
+
       <h3>按钮组</h3>
       <ButtonGroup>
         <Button>Default</Button>
         <Button>Warning</Button>
-        <Button>Danger</Button>
       </ButtonGroup>
     </>
   );
