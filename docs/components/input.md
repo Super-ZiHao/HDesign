@@ -10,6 +10,7 @@ export default () => {
     <>
       <h3>基本用法</h3>
       <Input
+        placeholder="123"
         onEnter={(value) => {
           console.log(value);
         }}

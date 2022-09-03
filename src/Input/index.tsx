@@ -4,16 +4,14 @@ import './index.scss';
 export type Props = {
   /** 输入框内容 */
   value?: string;
+  /** 输入框占位文本	 */
+  placeholder?: string;
   /**
    * @description 清除按钮
    * @default false
    */
-  clearable?: boolean;
-  /**
-   * @description 禁用
-   * @default false
-   */
-  disabled?: boolean;
+  clearable?: boolean | JSX.Element;
+
   /** 前缀 */
   prefix?: React.ReactNode;
   /** 输入框内容变化时触发 */
@@ -28,7 +26,7 @@ export type Props = {
   onClear?: (value: string, e: any) => void;
 };
 
-const Input: React.FC<Props> = ({ value, onChange, onFocus, onBlur, onEnter }) => {
+const Input: React.FC<Props> = ({ value, placeholder, onChange, onFocus, onBlur, onEnter }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleChage = (e: any) => {
@@ -68,6 +66,7 @@ const Input: React.FC<Props> = ({ value, onChange, onFocus, onBlur, onEnter }) =
         onBlur={handleBlur}
         onKeyDown={handleKeyDown}
       />
+      {placeholder && <span className="hd-input-placeholder">{placeholder}</span>}
     </div>
   );
 };
