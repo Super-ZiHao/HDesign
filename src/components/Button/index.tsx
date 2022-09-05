@@ -5,7 +5,7 @@ import { useButtonCustomStyle } from './utils';
 export type Props = {
   className?: string;
   style?: CSSProperties;
-  children?: React.ReactNode;
+  children: string;
   /**
    * @description 自适应颜色
    */
@@ -95,6 +95,26 @@ const Button: React.FC<Props> = ({
     button.addEventListener('mouseup', handleUp);
   };
 
+  const getChildren = () => {
+    // 禁用
+    if (disabled) return children;
+    // 加载态
+    if (loading)
+      return children.match(/./g)?.map((item, index) => (
+        <span
+          className="hd-button-text-turn"
+          style={{
+            // @ts-ignore
+            '--hd-button-loading-direction': `${index * 0.13}s`,
+          }}
+        >
+          {item}
+        </span>
+      ));
+    // 点击特效
+    if (animation) return <span className="hd-text">{children}</span>;
+    return children;
+  };
   return (
     <div className="hd-button">
       <button
@@ -112,7 +132,7 @@ const Button: React.FC<Props> = ({
         onMouseEnter={onMouseOver}
         {...resetProps}
       >
-        {animation ? <span className="hd-text">{children}</span> : children}
+        {getChildren()}
       </button>
       {disabled && <div className="hd-button-disabled" />}
       {loading && <div className="hd-button-loading" />}

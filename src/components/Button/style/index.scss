@@ -21,6 +21,7 @@
   border: 1px solid var(--hd-button-borderColor, #e6e2fa);
   background-color: var(--hd-button-bgColor, #fff);
   color: var(--hd-button-color, var(--hd-color-white));
+  letter-spacing: var(--hd-button-ls, 1px);
   font-size: var(--hd-button-fs, 14px);
   user-select: none;
   overflow: hidden;
@@ -173,8 +174,14 @@
   z-index: 10;
 }
 .hd-button-loading {
-  background-color: rgba($color: #fff, $alpha: .35);
+  background-color: rgba($color: #fff, $alpha: .25);
+  cursor: default;
 }
+.hd-button-text-turn {
+  display: inline-block;
+  animation: turn 3s linear infinite var(--hd-button-loading-direction, 0);
+}
+
 
 .hd-buttonGroup {
   display: inline-block;
@@ -200,5 +207,18 @@
   100% {
     width: 500px;
     height: 500px;
+  }
+}
+
+@keyframes turn {
+  0% {
+    transform: rotateY(0deg);
+    
+  }
+  60% {
+    transform: rotateY(360deg);
+  }
+  100% {
+    transform: rotateY(360deg);
   }
 }

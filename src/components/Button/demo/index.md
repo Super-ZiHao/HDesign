@@ -62,14 +62,14 @@ import { Button, ButtonGroup } from 'HDesign';
 export default () => {
   return (
     <div style={{ display: 'flex', gap: 8 }}>
+      <Button type="success" animation>
+        点击动画
+      </Button>
       <Button type="success" disabled>
         禁用
       </Button>
       <Button type="success" loading>
-        加载
-      </Button>
-      <Button type="success" animation>
-        点击动画
+        加载中。。。
       </Button>
     </div>
   );
@@ -84,13 +84,16 @@ import { Button, ButtonGroup } from 'HDesign';
 export default () => {
   return (
     <div style={{ display: 'flex', gap: 8 }}>
-      <Button color="pink" plain animation>
-        DIY-1
-      </Button>
       <Button color="green" plain animation>
         DIY-2
       </Button>
-      <Button color="#376aff" plain animation>
+      <Button color="green" animation>
+        DIY-2
+      </Button>
+      <Button color="#225874" plain animation>
+        DIY-3
+      </Button>
+      <Button color="#225874" animation>
         DIY-3
       </Button>
     </div>
