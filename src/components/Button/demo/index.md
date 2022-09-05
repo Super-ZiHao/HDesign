@@ -10,123 +10,105 @@ group:
   order: 1
 ---
 
-```tsx
-import React from 'react';
-import { Button, ButtonGroup } from 'HDesign';
-export default () => {
-  return (
-    <>
-      <h3>基本用法</h3>
-      <div style={{ display: 'flex', gap: 8 }}>
-        <Button animation>Default</Button>
-        <Button type="primary" animation>
-          Primary
-        </Button>
-        <Button type="success" animation>
-          Success
-        </Button>
-        <Button type="warning">Warning</Button>
-        <Button type="danger">Danger</Button>
-      </div>
-    </>
-  );
-};
-```
+### 基本用法
 
 ```tsx
 import React from 'react';
 import { Button, ButtonGroup } from 'HDesign';
 export default () => {
   return (
-    <>
-      <h3>轻量</h3>
-      <div style={{ display: 'flex', gap: 8 }}>
-        <Button plain animation>
-          Default
-        </Button>
-        <Button type="primary" plain animation>
-          Primary
-        </Button>
-        <Button type="success" plain animation>
-          Success
-        </Button>
-        <Button type="warning" plain>
-          Warning
-        </Button>
-        <Button type="danger" plain>
-          Danger
-        </Button>
-      </div>
-    </>
+    <div style={{ display: 'flex', gap: 8 }}>
+      <Button>Default</Button>
+      <Button type="primary">Primary</Button>
+      <Button type="success">Success</Button>
+      <Button type="warning">Warning</Button>
+      <Button type="danger">Danger</Button>
+    </div>
   );
 };
 ```
+
+### 轻量按钮
 
 ```tsx
 import React from 'react';
 import { Button, ButtonGroup } from 'HDesign';
 export default () => {
   return (
-    <>
-      <h3>禁用</h3>
-      <div style={{ display: 'flex', gap: 8 }}>
-        <Button disabled>Default</Button>
-        <Button type="primary" disabled>
-          Primary
-        </Button>
-        <Button type="success" disabled>
-          Success
-        </Button>
-        <Button type="warning" plain disabled>
-          Warning
-        </Button>
-        <Button type="danger" plain disabled>
-          Danger
-        </Button>
-      </div>
-    </>
+    <div style={{ display: 'flex', gap: 8 }}>
+      <Button plain>Default</Button>
+      <Button type="primary" plain>
+        Primary
+      </Button>
+      <Button type="success" plain>
+        Success
+      </Button>
+      <Button type="warning" plain>
+        Warning
+      </Button>
+      <Button type="danger" plain>
+        Danger
+      </Button>
+    </div>
   );
 };
 ```
+
+### 特殊状态
 
 ```tsx
 import React from 'react';
 import { Button, ButtonGroup } from 'HDesign';
 export default () => {
   return (
-    <>
-      <h3>自适应颜色</h3>
-      <div style={{ display: 'flex', gap: 8 }}>
-        <Button color="pink" animation>
-          DIY-1
-        </Button>
-        <Button color="pink" plain animation>
-          DIY-1
-        </Button>
-        <Button color="green" animation>
-          DIY-2
-        </Button>
-        <Button color="#376aff" animation>
-          DIY-3
-        </Button>
-      </div>
-    </>
+    <div style={{ display: 'flex', gap: 8 }}>
+      <Button type="success" disabled>
+        禁用
+      </Button>
+      <Button type="success" loading>
+        加载
+      </Button>
+      <Button type="success" animation>
+        点击动画
+      </Button>
+    </div>
   );
 };
 ```
+
+### 自定义按钮主题
 
 ```tsx
 import React from 'react';
 import { Button, ButtonGroup } from 'HDesign';
 export default () => {
   return (
-    <>
-      <h3>按钮组</h3>
-      <ButtonGroup>
-        <Button>Default</Button>
-        <Button>Warning</Button>
-      </ButtonGroup>
-    </>
+    <div style={{ display: 'flex', gap: 8 }}>
+      <Button color="pink" plain animation>
+        DIY-1
+      </Button>
+      <Button color="green" plain animation>
+        DIY-2
+      </Button>
+      <Button color="#376aff" plain animation>
+        DIY-3
+      </Button>
+    </div>
+  );
+};
+```
+
+### 按钮组
+
+```tsx
+import React from 'react';
+import { Button, ButtonGroup } from 'HDesign';
+export default () => {
+  return (
+    <ButtonGroup>
+      <Button>Default</Button>
+      <Button>Warning</Button>
+    </ButtonGroup>
   );
 };
 ```
