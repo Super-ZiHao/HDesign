@@ -1,6 +1,6 @@
 import React, { CSSProperties, useRef } from 'react';
-import './index.scss';
-import { getColor, useButtonCustomStyle } from './utils';
+import './style/index.scss';
+import { useButtonCustomStyle } from './utils';
 
 export type Props = {
   className?: string;

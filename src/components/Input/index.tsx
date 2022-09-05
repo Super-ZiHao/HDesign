@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import './index.scss';
+import './style/index.scss';
 
 export type Props = {
   /** 输入框内容 */

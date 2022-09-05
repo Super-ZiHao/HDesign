@@ -1,4 +1,14 @@
-# Button 按钮
+---
+title: Button 按钮
+nav:
+  title: 功能组件
+  path: /components
+  order: 1
+group:
+  title: Button 按钮
+  path: /button
+  order: 1
+---
 
 ```tsx
 import React from 'react';
@@ -18,7 +28,17 @@ export default () => {
         <Button type="warning">Warning</Button>
         <Button type="danger">Danger</Button>
       </div>
+    </>
+  );
+};
+```
 
+```tsx
+import React from 'react';
+import { Button, ButtonGroup } from 'HDesign';
+export default () => {
+  return (
+    <>
       <h3>轻量</h3>
       <div style={{ display: 'flex', gap: 8 }}>
         <Button plain animation>
@@ -37,7 +57,17 @@ export default () => {
           Danger
         </Button>
       </div>
+    </>
+  );
+};
+```
 
+```tsx
+import React from 'react';
+import { Button, ButtonGroup } from 'HDesign';
+export default () => {
+  return (
+    <>
       <h3>禁用</h3>
       <div style={{ display: 'flex', gap: 8 }}>
         <Button disabled>Default</Button>
@@ -54,7 +84,17 @@ export default () => {
           Danger
         </Button>
       </div>
+    </>
+  );
+};
+```
 
+```tsx
+import React from 'react';
+import { Button, ButtonGroup } from 'HDesign';
+export default () => {
+  return (
+    <>
       <h3>自适应颜色</h3>
       <div style={{ display: 'flex', gap: 8 }}>
         <Button color="pink" animation>
@@ -70,7 +110,17 @@ export default () => {
           DIY-3
         </Button>
       </div>
+    </>
+  );
+};
+```
 
+```tsx
+import React from 'react';
+import { Button, ButtonGroup } from 'HDesign';
+export default () => {
+  return (
+    <>
       <h3>按钮组</h3>
       <ButtonGroup>
         <Button>Default</Button>
@@ -81,4 +131,6 @@ export default () => {
 };
 ```
 
-<API src="../../src/Button/index.tsx" />
+<API src='../index.tsx'></API>
+
+<!-- <API src="./index.ts" exports='["ButtonProps", "ButtonGroupProps"]' /> -->

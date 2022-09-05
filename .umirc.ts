@@ -17,4 +17,8 @@ export default defineConfig({
     ['zh-CN', '中文'],
     ['en-US', 'English'],
   ],
+  alias: {
+    lc: '/src/layoutComponents',
+    uc: '/src/utilsComponents',
+  },
 });

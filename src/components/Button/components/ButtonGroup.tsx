@@ -1,17 +1,17 @@
 import React from 'react';
 
-type Props = {
+export type Props = {
   /** 主题颜色 */
-  theme?: '' | ''
+  theme?: '' | '';
   /** 圆角大小 */
-  radius?: number | string
+  radius?: number | string;
   /** 选中按钮 */
-  value?: any
+  value?: any;
   /** 按钮数据 */
-  data?: any[]
+  data?: any[];
   /** 改变事件 */
-  onChange?: (index: number, e: any) => void
-  children?: React.ReactNode
+  onChange?: (index: number, e: any) => void;
+  children?: React.ReactNode;
 };
 
 export const ButtonGroup: React.FC<Props> = ({
@@ -23,8 +23,8 @@ export const ButtonGroup: React.FC<Props> = ({
   children,
 }) => {
   return (
-    <div className='hd-buttonGroup' style={{ borderRadius: radius }}>
+    <div className="hd-buttonGroup" style={{ borderRadius: radius }}>
       {children}
     </div>
-  )
+  );
 };
