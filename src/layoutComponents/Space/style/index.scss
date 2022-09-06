@@ -1,0 +1,7 @@
+.hd-space {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--hd-space-gap);
+  flex-direction: var(--hd-space-direction);
+  line-height: normal;
+}
