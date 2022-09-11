@@ -12,10 +12,10 @@ group:
 
 ```tsx
 import React from 'react';
-import { Button, Space } from 'HDesign';
+import { Button, Space, Divider } from 'HDesign';
 export default () => {
   return (
-    <Space gap={24} split="|" >
+    <Space gap={24} split={<Divider gap={0} height={24} />}>
       <Button>按钮1</Button>
       <Button>按钮2</Button>
       <Button>按钮3</Button>

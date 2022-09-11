@@ -12,8 +12,16 @@ group:
 
 ```tsx
 import React from 'react';
+import { Divider } from 'HDesign';
 export default () => {
-  return <div>123</div>;
+  return (
+    <div>
+      <div style={{ height: 100 }}>
+        <Divider height={80} gap={16} />
+      </div>
+      <Divider direction="horizontal" width={100} gap={16} />
+    </div>
+  );
 };
 ```
 
